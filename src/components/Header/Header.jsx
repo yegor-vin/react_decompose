@@ -1,5 +1,25 @@
-// import a css file containig header styles
+import './Header.css';
 
-// Create a Header function returning the HTML of header block
+const Header = () => {
+  const navigationBlocks = ['About', 'Services', 'Contact'];
 
-// Add a default export statement for Header component to use it in the other files
+  return (
+    <header className="header">
+      <h1 className="header__title">Site Name</h1>
+      <nav className="navigation">
+        {navigationBlocks.map(block => {
+          return (
+            <a
+              className="navigation__link"
+              href={`#${block.toLocaleLowerCase()}`}
+            >
+              {block}
+            </a>
+          );
+        })}
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
